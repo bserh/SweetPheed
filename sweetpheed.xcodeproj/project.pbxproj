@@ -1,0 +1,393 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		595C1BC9CDB01216C87EA2D9 /* Pods_sweetpheed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 690747279777A5472788111D /* Pods_sweetpheed.framework */; };
+		A59CED0E1CC4B44500006B86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59CED0D1CC4B44500006B86 /* AppDelegate.swift */; };
+		A59CED151CC4B44500006B86 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A59CED131CC4B44500006B86 /* Main.storyboard */; };
+		A59CED171CC4B44500006B86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A59CED161CC4B44500006B86 /* Assets.xcassets */; };
+		A59CED1A1CC4B44500006B86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A59CED181CC4B44500006B86 /* LaunchScreen.storyboard */; };
+		A5B9F2E21CC4B9B60058C07E /* NearbyPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B9F2E11CC4B9B60058C07E /* NearbyPhotosViewController.swift */; };
+		A5B9F2E61CC4BAA00058C07E /* InstagramImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B9F2E51CC4BAA00058C07E /* InstagramImageLoader.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		016492AEF36281E06308932B /* Pods-sweetpheed.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sweetpheed.debug.xcconfig"; path = "Pods/Target Support Files/Pods-sweetpheed/Pods-sweetpheed.debug.xcconfig"; sourceTree = "<group>"; };
+		60E3CFBA80F17ADB4741AA4D /* Pods-sweetpheed.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sweetpheed.release.xcconfig"; path = "Pods/Target Support Files/Pods-sweetpheed/Pods-sweetpheed.release.xcconfig"; sourceTree = "<group>"; };
+		690747279777A5472788111D /* Pods_sweetpheed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_sweetpheed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A59CED0A1CC4B44400006B86 /* sweetpheed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sweetpheed.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A59CED0D1CC4B44500006B86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A59CED141CC4B44500006B86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A59CED161CC4B44500006B86 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A59CED191CC4B44500006B86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A59CED1B1CC4B44500006B86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5B9F2E11CC4B9B60058C07E /* NearbyPhotosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyPhotosViewController.swift; sourceTree = "<group>"; };
+		A5B9F2E51CC4BAA00058C07E /* InstagramImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstagramImageLoader.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A59CED071CC4B44400006B86 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				595C1BC9CDB01216C87EA2D9 /* Pods_sweetpheed.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3CE84E85F53CB977C5E910AB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				690747279777A5472788111D /* Pods_sweetpheed.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A3F869007844271FFDFD10F1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				016492AEF36281E06308932B /* Pods-sweetpheed.debug.xcconfig */,
+				60E3CFBA80F17ADB4741AA4D /* Pods-sweetpheed.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A59CED011CC4B44400006B86 = {
+			isa = PBXGroup;
+			children = (
+				A59CED0C1CC4B44400006B86 /* sweetpheed */,
+				A59CED0B1CC4B44400006B86 /* Products */,
+				A3F869007844271FFDFD10F1 /* Pods */,
+				3CE84E85F53CB977C5E910AB /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A59CED0B1CC4B44400006B86 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A59CED0A1CC4B44400006B86 /* sweetpheed.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A59CED0C1CC4B44400006B86 /* sweetpheed */ = {
+			isa = PBXGroup;
+			children = (
+				A59CED0D1CC4B44500006B86 /* AppDelegate.swift */,
+				A5B9F2E31CC4B9BF0058C07E /* Nearby Photos VC */,
+				A5B9F2E41CC4BA650058C07E /* Instagram API Utilities */,
+				A59CED131CC4B44500006B86 /* Main.storyboard */,
+				A59CED161CC4B44500006B86 /* Assets.xcassets */,
+				A59CED181CC4B44500006B86 /* LaunchScreen.storyboard */,
+				A59CED1B1CC4B44500006B86 /* Info.plist */,
+			);
+			path = sweetpheed;
+			sourceTree = "<group>";
+		};
+		A5B9F2E31CC4B9BF0058C07E /* Nearby Photos VC */ = {
+			isa = PBXGroup;
+			children = (
+				A5B9F2E11CC4B9B60058C07E /* NearbyPhotosViewController.swift */,
+			);
+			name = "Nearby Photos VC";
+			sourceTree = "<group>";
+		};
+		A5B9F2E41CC4BA650058C07E /* Instagram API Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				A5B9F2E51CC4BAA00058C07E /* InstagramImageLoader.swift */,
+			);
+			name = "Instagram API Utilities";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A59CED091CC4B44400006B86 /* sweetpheed */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A59CED1E1CC4B44500006B86 /* Build configuration list for PBXNativeTarget "sweetpheed" */;
+			buildPhases = (
+				60A61B55B1428A6B53607B60 /* Check Pods Manifest.lock */,
+				A59CED061CC4B44400006B86 /* Sources */,
+				A59CED071CC4B44400006B86 /* Frameworks */,
+				A59CED081CC4B44400006B86 /* Resources */,
+				8491226333663024C9B925B2 /* Embed Pods Frameworks */,
+				F6493258448F776B9EAFA06E /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = sweetpheed;
+			productName = sweetpheed;
+			productReference = A59CED0A1CC4B44400006B86 /* sweetpheed.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A59CED021CC4B44400006B86 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Sergey Bavykin";
+				TargetAttributes = {
+					A59CED091CC4B44400006B86 = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+				};
+			};
+			buildConfigurationList = A59CED051CC4B44400006B86 /* Build configuration list for PBXProject "sweetpheed" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A59CED011CC4B44400006B86;
+			productRefGroup = A59CED0B1CC4B44400006B86 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A59CED091CC4B44400006B86 /* sweetpheed */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A59CED081CC4B44400006B86 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A59CED1A1CC4B44500006B86 /* LaunchScreen.storyboard in Resources */,
+				A59CED171CC4B44500006B86 /* Assets.xcassets in Resources */,
+				A59CED151CC4B44500006B86 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		60A61B55B1428A6B53607B60 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8491226333663024C9B925B2 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-sweetpheed/Pods-sweetpheed-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F6493258448F776B9EAFA06E /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-sweetpheed/Pods-sweetpheed-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A59CED061CC4B44400006B86 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5B9F2E21CC4B9B60058C07E /* NearbyPhotosViewController.swift in Sources */,
+				A59CED0E1CC4B44500006B86 /* AppDelegate.swift in Sources */,
+				A5B9F2E61CC4BAA00058C07E /* InstagramImageLoader.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A59CED131CC4B44500006B86 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A59CED141CC4B44500006B86 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A59CED181CC4B44500006B86 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A59CED191CC4B44500006B86 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A59CED1C1CC4B44500006B86 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A59CED1D1CC4B44500006B86 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A59CED1F1CC4B44500006B86 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 016492AEF36281E06308932B /* Pods-sweetpheed.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = sweetpheed/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = pi.sweetpheed;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A59CED201CC4B44500006B86 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 60E3CFBA80F17ADB4741AA4D /* Pods-sweetpheed.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = sweetpheed/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = pi.sweetpheed;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A59CED051CC4B44400006B86 /* Build configuration list for PBXProject "sweetpheed" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A59CED1C1CC4B44500006B86 /* Debug */,
+				A59CED1D1CC4B44500006B86 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A59CED1E1CC4B44500006B86 /* Build configuration list for PBXNativeTarget "sweetpheed" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A59CED1F1CC4B44500006B86 /* Debug */,
+				A59CED201CC4B44500006B86 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A59CED021CC4B44400006B86 /* Project object */;
+}
