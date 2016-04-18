@@ -1,22 +1,10 @@
 PODS:
-  - Alamofire (3.3.1)
-  - SwiftyJSON (2.3.2)
+  - FlickrKit (1.0.7)
 
 DEPENDENCIES:
-  - Alamofire (~> 3.3)
-  - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
-
-EXTERNAL SOURCES:
-  SwiftyJSON:
-    :git: https://github.com/SwiftyJSON/SwiftyJSON.git
-
-CHECKOUT OPTIONS:
-  SwiftyJSON:
-    :commit: 2a5b70f06001316d4fb54501edc70b4084705da0
-    :git: https://github.com/SwiftyJSON/SwiftyJSON.git
+  - FlickrKit (~> 1.0)
 
 SPEC CHECKSUMS:
-  Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
-  SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
+  FlickrKit: 907da468d679233a27d66dd88c6dcd024074b0f0
 
 COCOAPODS: 0.39.0

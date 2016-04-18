@@ -8,18 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		595C1BC9CDB01216C87EA2D9 /* Pods_sweetpheed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 690747279777A5472788111D /* Pods_sweetpheed.framework */; };
+		A52E8A7D1CC4FD7F00640C42 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52E8A7C1CC4FD7F00640C42 /* SearchController.swift */; };
+		A5487F951CC511B600259857 /* FlickrPhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5487F941CC511B600259857 /* FlickrPhotoModel.swift */; };
+		A5487F971CC5203700259857 /* PaginationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5487F961CC5203700259857 /* PaginationModel.swift */; };
 		A59CED0E1CC4B44500006B86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59CED0D1CC4B44500006B86 /* AppDelegate.swift */; };
 		A59CED151CC4B44500006B86 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A59CED131CC4B44500006B86 /* Main.storyboard */; };
 		A59CED171CC4B44500006B86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A59CED161CC4B44500006B86 /* Assets.xcassets */; };
 		A59CED1A1CC4B44500006B86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A59CED181CC4B44500006B86 /* LaunchScreen.storyboard */; };
 		A5B9F2E21CC4B9B60058C07E /* NearbyPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B9F2E11CC4B9B60058C07E /* NearbyPhotosViewController.swift */; };
-		A5B9F2E61CC4BAA00058C07E /* InstagramImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B9F2E51CC4BAA00058C07E /* InstagramImageLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		016492AEF36281E06308932B /* Pods-sweetpheed.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sweetpheed.debug.xcconfig"; path = "Pods/Target Support Files/Pods-sweetpheed/Pods-sweetpheed.debug.xcconfig"; sourceTree = "<group>"; };
 		60E3CFBA80F17ADB4741AA4D /* Pods-sweetpheed.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sweetpheed.release.xcconfig"; path = "Pods/Target Support Files/Pods-sweetpheed/Pods-sweetpheed.release.xcconfig"; sourceTree = "<group>"; };
 		690747279777A5472788111D /* Pods_sweetpheed.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_sweetpheed.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A52E8A7C1CC4FD7F00640C42 /* SearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
+		A5487F941CC511B600259857 /* FlickrPhotoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrPhotoModel.swift; sourceTree = "<group>"; };
+		A5487F961CC5203700259857 /* PaginationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaginationModel.swift; sourceTree = "<group>"; };
 		A59CED0A1CC4B44400006B86 /* sweetpheed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sweetpheed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A59CED0D1CC4B44500006B86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A59CED141CC4B44500006B86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -27,7 +32,7 @@
 		A59CED191CC4B44500006B86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A59CED1B1CC4B44500006B86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5B9F2E11CC4B9B60058C07E /* NearbyPhotosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyPhotosViewController.swift; sourceTree = "<group>"; };
-		A5B9F2E51CC4BAA00058C07E /* InstagramImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstagramImageLoader.swift; sourceTree = "<group>"; };
+		A5B9F2EA1CC4E90C0058C07E /* sweetpheed-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "sweetpheed-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +64,16 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		A52E8A7B1CC4FD3400640C42 /* Photo's Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A52E8A7C1CC4FD7F00640C42 /* SearchController.swift */,
+				A5487F941CC511B600259857 /* FlickrPhotoModel.swift */,
+				A5487F961CC5203700259857 /* PaginationModel.swift */,
+			);
+			name = "Photo's Controller";
+			sourceTree = "<group>";
+		};
 		A59CED011CC4B44400006B86 = {
 			isa = PBXGroup;
 			children = (
@@ -82,11 +97,12 @@
 			children = (
 				A59CED0D1CC4B44500006B86 /* AppDelegate.swift */,
 				A5B9F2E31CC4B9BF0058C07E /* Nearby Photos VC */,
-				A5B9F2E41CC4BA650058C07E /* Instagram API Utilities */,
+				A52E8A7B1CC4FD3400640C42 /* Photo's Controller */,
 				A59CED131CC4B44500006B86 /* Main.storyboard */,
 				A59CED161CC4B44500006B86 /* Assets.xcassets */,
 				A59CED181CC4B44500006B86 /* LaunchScreen.storyboard */,
 				A59CED1B1CC4B44500006B86 /* Info.plist */,
+				A5B9F2EA1CC4E90C0058C07E /* sweetpheed-Bridging-Header.h */,
 			);
 			path = sweetpheed;
 			sourceTree = "<group>";
@@ -97,14 +113,6 @@
 				A5B9F2E11CC4B9B60058C07E /* NearbyPhotosViewController.swift */,
 			);
 			name = "Nearby Photos VC";
-			sourceTree = "<group>";
-		};
-		A5B9F2E41CC4BA650058C07E /* Instagram API Utilities */ = {
-			isa = PBXGroup;
-			children = (
-				A5B9F2E51CC4BAA00058C07E /* InstagramImageLoader.swift */,
-			);
-			name = "Instagram API Utilities";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,9 +237,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5487F971CC5203700259857 /* PaginationModel.swift in Sources */,
 				A5B9F2E21CC4B9B60058C07E /* NearbyPhotosViewController.swift in Sources */,
 				A59CED0E1CC4B44500006B86 /* AppDelegate.swift in Sources */,
-				A5B9F2E61CC4BAA00058C07E /* InstagramImageLoader.swift in Sources */,
+				A5487F951CC511B600259857 /* FlickrPhotoModel.swift in Sources */,
+				A52E8A7D1CC4FD7F00640C42 /* SearchController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,11 +355,14 @@
 			baseConfigurationReference = 016492AEF36281E06308932B /* Pods-sweetpheed.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = sweetpheed/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pi.sweetpheed;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "sweetpheed/sweetpheed-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -358,11 +371,13 @@
 			baseConfigurationReference = 60E3CFBA80F17ADB4741AA4D /* Pods-sweetpheed.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = sweetpheed/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pi.sweetpheed;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "sweetpheed/sweetpheed-Bridging-Header.h";
 			};
 			name = Release;
 		};
