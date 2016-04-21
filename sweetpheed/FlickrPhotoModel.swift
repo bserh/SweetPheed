@@ -9,9 +9,6 @@
 import Foundation
 
 struct FlickrPhotoModel {
-    var id: Int?
-    var lat: Double?
-    var lon: Double?
     var thumbnailURL: NSURL?
     var originalURL: NSURL?
 }

@@ -9,15 +9,8 @@
 import Foundation
 
 struct PaginationModel {
-    var currentPage: Int {
-        mutating get {
-            let oldVal = mutablePageID
-            mutablePageID += perPage
-            return oldVal
-        }
-    }
-    var perPage: Int = 15
-    private var mutablePageID = 0
+    var currentPage = 0
+    var perPage = 30
     
     init() {
         
@@ -25,15 +18,25 @@ struct PaginationModel {
     
     init(perPage: Int) {
         self.perPage = perPage
-        mutablePageID = 0
     }
 }
 
 extension PaginationModel {
     func toDictionaryRepresentation() -> [String: CustomStringConvertible] {
         return [
-            "page": mutablePageID,
-            "perpage": perPage
+            "page": currentPage,
+            "per_page": perPage
         ]
+    }
+}
+
+func += <K,V> (inout left: Dictionary<K,V>, right: Dictionary<K,V>?) {
+    guard let right = right else {
+        return
+    }
+    right.forEach {
+        key, value in
+        
+        left.updateValue(value, forKey: key)
     }
 }

@@ -11,10 +11,11 @@
 		A52E8A7D1CC4FD7F00640C42 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52E8A7C1CC4FD7F00640C42 /* SearchController.swift */; };
 		A5487F951CC511B600259857 /* FlickrPhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5487F941CC511B600259857 /* FlickrPhotoModel.swift */; };
 		A5487F971CC5203700259857 /* PaginationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5487F961CC5203700259857 /* PaginationModel.swift */; };
+		A5487F991CC6328D00259857 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5487F981CC6328D00259857 /* ImageCollectionViewCell.swift */; };
 		A59CED0E1CC4B44500006B86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59CED0D1CC4B44500006B86 /* AppDelegate.swift */; };
-		A59CED151CC4B44500006B86 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A59CED131CC4B44500006B86 /* Main.storyboard */; };
 		A59CED171CC4B44500006B86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A59CED161CC4B44500006B86 /* Assets.xcassets */; };
 		A59CED1A1CC4B44500006B86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A59CED181CC4B44500006B86 /* LaunchScreen.storyboard */; };
+		A5A766691CC77A0D00316241 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5A766681CC77A0D00316241 /* Main.storyboard */; };
 		A5B9F2E21CC4B9B60058C07E /* NearbyPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B9F2E11CC4B9B60058C07E /* NearbyPhotosViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -25,12 +26,13 @@
 		A52E8A7C1CC4FD7F00640C42 /* SearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		A5487F941CC511B600259857 /* FlickrPhotoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrPhotoModel.swift; sourceTree = "<group>"; };
 		A5487F961CC5203700259857 /* PaginationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaginationModel.swift; sourceTree = "<group>"; };
+		A5487F981CC6328D00259857 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		A59CED0A1CC4B44400006B86 /* sweetpheed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sweetpheed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A59CED0D1CC4B44500006B86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A59CED141CC4B44500006B86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A59CED161CC4B44500006B86 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A59CED191CC4B44500006B86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A59CED1B1CC4B44500006B86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5A766681CC77A0D00316241 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		A5B9F2E11CC4B9B60058C07E /* NearbyPhotosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyPhotosViewController.swift; sourceTree = "<group>"; };
 		A5B9F2EA1CC4E90C0058C07E /* sweetpheed-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "sweetpheed-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -97,12 +99,13 @@
 			children = (
 				A59CED0D1CC4B44500006B86 /* AppDelegate.swift */,
 				A5B9F2E31CC4B9BF0058C07E /* Nearby Photos VC */,
+				A5DD0C121CC8E18F00A3F9EB /* Photo Collection VC */,
 				A52E8A7B1CC4FD3400640C42 /* Photo's Controller */,
-				A59CED131CC4B44500006B86 /* Main.storyboard */,
 				A59CED161CC4B44500006B86 /* Assets.xcassets */,
 				A59CED181CC4B44500006B86 /* LaunchScreen.storyboard */,
 				A59CED1B1CC4B44500006B86 /* Info.plist */,
 				A5B9F2EA1CC4E90C0058C07E /* sweetpheed-Bridging-Header.h */,
+				A5A766681CC77A0D00316241 /* Main.storyboard */,
 			);
 			path = sweetpheed;
 			sourceTree = "<group>";
@@ -113,6 +116,14 @@
 				A5B9F2E11CC4B9B60058C07E /* NearbyPhotosViewController.swift */,
 			);
 			name = "Nearby Photos VC";
+			sourceTree = "<group>";
+		};
+		A5DD0C121CC8E18F00A3F9EB /* Photo Collection VC */ = {
+			isa = PBXGroup;
+			children = (
+				A5487F981CC6328D00259857 /* ImageCollectionViewCell.swift */,
+			);
+			name = "Photo Collection VC";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,9 +187,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5A766691CC77A0D00316241 /* Main.storyboard in Resources */,
 				A59CED1A1CC4B44500006B86 /* LaunchScreen.storyboard in Resources */,
 				A59CED171CC4B44500006B86 /* Assets.xcassets in Resources */,
-				A59CED151CC4B44500006B86 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,6 +248,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5487F991CC6328D00259857 /* ImageCollectionViewCell.swift in Sources */,
 				A5487F971CC5203700259857 /* PaginationModel.swift in Sources */,
 				A5B9F2E21CC4B9B60058C07E /* NearbyPhotosViewController.swift in Sources */,
 				A59CED0E1CC4B44500006B86 /* AppDelegate.swift in Sources */,
@@ -248,14 +260,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		A59CED131CC4B44500006B86 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A59CED141CC4B44500006B86 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A59CED181CC4B44500006B86 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -303,7 +307,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -342,7 +346,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -357,7 +361,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = sweetpheed/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pi.sweetpheed;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -373,7 +377,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = sweetpheed/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pi.sweetpheed;
 				PRODUCT_NAME = "$(TARGET_NAME)";
