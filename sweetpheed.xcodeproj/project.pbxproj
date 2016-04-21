@@ -17,6 +17,8 @@
 		A59CED1A1CC4B44500006B86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A59CED181CC4B44500006B86 /* LaunchScreen.storyboard */; };
 		A5A766691CC77A0D00316241 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5A766681CC77A0D00316241 /* Main.storyboard */; };
 		A5B9F2E21CC4B9B60058C07E /* NearbyPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B9F2E11CC4B9B60058C07E /* NearbyPhotosViewController.swift */; };
+		A5DD0C141CC8E82200A3F9EB /* PhotoCollectionBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DD0C131CC8E82200A3F9EB /* PhotoCollectionBaseViewController.swift */; };
+		A5DD0C161CC8F3FE00A3F9EB /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DD0C151CC8F3FE00A3F9EB /* PhotoDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		A5A766681CC77A0D00316241 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		A5B9F2E11CC4B9B60058C07E /* NearbyPhotosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyPhotosViewController.swift; sourceTree = "<group>"; };
 		A5B9F2EA1CC4E90C0058C07E /* sweetpheed-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "sweetpheed-Bridging-Header.h"; sourceTree = "<group>"; };
+		A5DD0C131CC8E82200A3F9EB /* PhotoCollectionBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionBaseViewController.swift; sourceTree = "<group>"; };
+		A5DD0C151CC8F3FE00A3F9EB /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +126,8 @@
 			isa = PBXGroup;
 			children = (
 				A5487F981CC6328D00259857 /* ImageCollectionViewCell.swift */,
+				A5DD0C131CC8E82200A3F9EB /* PhotoCollectionBaseViewController.swift */,
+				A5DD0C151CC8F3FE00A3F9EB /* PhotoDetailViewController.swift */,
 			);
 			name = "Photo Collection VC";
 			sourceTree = "<group>";
@@ -251,8 +257,10 @@
 				A5487F991CC6328D00259857 /* ImageCollectionViewCell.swift in Sources */,
 				A5487F971CC5203700259857 /* PaginationModel.swift in Sources */,
 				A5B9F2E21CC4B9B60058C07E /* NearbyPhotosViewController.swift in Sources */,
+				A5DD0C141CC8E82200A3F9EB /* PhotoCollectionBaseViewController.swift in Sources */,
 				A59CED0E1CC4B44500006B86 /* AppDelegate.swift in Sources */,
 				A5487F951CC511B600259857 /* FlickrPhotoModel.swift in Sources */,
+				A5DD0C161CC8F3FE00A3F9EB /* PhotoDetailViewController.swift in Sources */,
 				A52E8A7D1CC4FD7F00640C42 /* SearchController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

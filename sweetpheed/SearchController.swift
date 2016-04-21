@@ -45,8 +45,8 @@ class SearchController {
         let photoArray = photosContainerObject["photo"] as! [[NSObject: AnyObject]]
         for photoDictionary in photoArray {
             let photoThumbURL = FlickrKit.sharedFlickrKit().photoURLForSize(FKPhotoSizeSmall240, fromPhotoDictionary: photoDictionary)
-            let photoOriginalURL = FlickrKit.sharedFlickrKit().photoURLForSize(FKPhotoSizeOriginal, fromPhotoDictionary: photoDictionary)
-            
+            let photoOriginalURL = FlickrKit.sharedFlickrKit().photoURLForSize(FKPhotoSizeLarge1600, fromPhotoDictionary: photoDictionary)
+
             let photoModel = FlickrPhotoModel(thumbnailURL: photoThumbURL, originalURL: photoOriginalURL)
             flickrResponseData.append(photoModel)
         }
@@ -73,7 +73,7 @@ class SearchController {
             if !isLocationsEqual(oldLocation, location) {
                 self.pagination = PaginationModel()
                 self.storedLocation = location
-            } else if isLocationsEqual(oldLocation, location) && data.count != 0 {//gets pull-to-refresh trigger
+            } else if isLocationsEqual(oldLocation, location) && data.count == 0 {//gets pull-to-refresh trigger
                 self.pagination = PaginationModel()
             }
         } else {

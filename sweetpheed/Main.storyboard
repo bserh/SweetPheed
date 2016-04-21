@@ -73,6 +73,7 @@
                                         <connections>
                                             <outlet property="imageView" destination="DNO-x3-OEj" id="Bth-Ck-43C"/>
                                             <outlet property="loadingIndicator" destination="JPu-Io-Vj6" id="Gpx-9U-qt9"/>
+                                            <segue destination="2t8-7T-nLL" kind="presentation" identifier="showFullSizePhoto" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="shb-cg-g4g"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -147,6 +148,78 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uGO-we-Jq6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="510" y="-273"/>
+        </scene>
+        <!--Full size photo-->
+        <scene sceneID="Mo6-jh-ZlV">
+            <objects>
+                <viewController id="2t8-7T-nLL" customClass="PhotoDetailViewController" customModule="sweetpheed" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IR9-xt-nSP"/>
+                        <viewControllerLayoutGuide type="bottom" id="flg-gf-yut"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3xr-tT-vc9">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="6Fi-xh-hKr">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" maximumZoomScale="3" translatesAutoresizingMaskIntoConstraints="NO" id="JNO-QU-2Oh">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <imageView multipleTouchEnabled="YES" contentMode="scaleAspectFit" placeholderIntrinsicWidth="100" placeholderIntrinsicHeight="100" translatesAutoresizingMaskIntoConstraints="NO" id="ZHV-qD-Tq1">
+                                        <rect key="frame" x="250" y="270" width="100" height="100"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="KTa-cd-NsX" appends="YES" id="Ifd-rJ-mu3"/>
+                                        </connections>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="ZHV-qD-Tq1" firstAttribute="leading" secondItem="JNO-QU-2Oh" secondAttribute="leading" constant="250" id="FpJ-Ud-SAX"/>
+                                    <constraint firstItem="ZHV-qD-Tq1" firstAttribute="top" secondItem="JNO-QU-2Oh" secondAttribute="top" constant="270" id="IT2-rv-FPA"/>
+                                    <constraint firstItem="ZHV-qD-Tq1" firstAttribute="bottom" secondItem="JNO-QU-2Oh" secondAttribute="bottom" constant="-230" id="St7-H4-YFx"/>
+                                    <constraint firstItem="ZHV-qD-Tq1" firstAttribute="trailing" secondItem="JNO-QU-2Oh" secondAttribute="trailing" constant="-250" id="lme-HQ-6H4"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="JNO-QU-2Oh" secondAttribute="bottom" id="Fl8-Vf-cV1"/>
+                            <constraint firstAttribute="trailing" secondItem="JNO-QU-2Oh" secondAttribute="trailing" id="aYf-UI-E7Z"/>
+                            <constraint firstItem="6Fi-xh-hKr" firstAttribute="centerY" secondItem="3xr-tT-vc9" secondAttribute="centerY" id="cNf-52-HjQ"/>
+                            <constraint firstItem="JNO-QU-2Oh" firstAttribute="centerX" secondItem="6Fi-xh-hKr" secondAttribute="centerX" id="oFR-oM-FuI"/>
+                            <constraint firstItem="JNO-QU-2Oh" firstAttribute="top" secondItem="3xr-tT-vc9" secondAttribute="top" id="ruw-X8-5xh"/>
+                            <constraint firstItem="JNO-QU-2Oh" firstAttribute="leading" secondItem="3xr-tT-vc9" secondAttribute="leading" id="sqt-Li-Iau"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Full size photo" id="mHG-jn-dPb">
+                        <barButtonItem key="rightBarButtonItem" title="Share" id="Xr7-cz-XD9">
+                            <connections>
+                                <action selector="shareButtonTapped:" destination="2t8-7T-nLL" id="p9U-iP-hI6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="activityIndicator" destination="6Fi-xh-hKr" id="Cs7-Jy-ayq"/>
+                        <outlet property="imageConstraintBottom" destination="St7-H4-YFx" id="7lo-Dg-fDk"/>
+                        <outlet property="imageConstraintLeft" destination="FpJ-Ud-SAX" id="Nke-uz-gd5"/>
+                        <outlet property="imageConstraintRight" destination="lme-HQ-6H4" id="rAe-ad-3Ah"/>
+                        <outlet property="imageConstraintTop" destination="IT2-rv-FPA" id="QkJ-PT-0hl"/>
+                        <outlet property="imageView" destination="ZHV-qD-Tq1" id="Al5-Xt-5sV"/>
+                        <outlet property="scrollView" destination="JNO-QU-2Oh" id="fim-PH-Bdm"/>
+                        <segue destination="pCT-mp-fj0" kind="unwind" identifier="unwindToPhotoCollection" unwindAction="unwindToPhotoCollectionBaseViewController:" id="XBK-06-oJt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K1Q-Cp-e4g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="pCT-mp-fj0" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="KTa-cd-NsX">
+                    <connections>
+                        <action selector="handleDoubleTap:" destination="2t8-7T-nLL" id="JyP-Ii-Gks"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="2176" y="-58"/>
         </scene>
     </scenes>
 </document>
