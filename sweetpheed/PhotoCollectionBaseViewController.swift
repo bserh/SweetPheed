@@ -12,7 +12,7 @@ class PhotoCollectionBaseViewController: UIViewController {
     //MARK: - Properties
     @IBOutlet weak var collectionView: UICollectionView!
     
-    let photoSearchController = SearchController()
+    let photoSearchService = FlickrSearchService()
     private let showFullSizeSegueIdentifier = "showFullSizePhoto"
     private var refreshControl: UIRefreshControl?
     private var cache = NSCache()
@@ -46,7 +46,7 @@ class PhotoCollectionBaseViewController: UIViewController {
         let collectionViewCell = sender as! ImageCollectionViewCell
         let indexPath = collectionView.indexPathForCell(collectionViewCell)!
         
-        let photoURL = photoSearchController.data[indexPath.row].originalURL
+        let photoURL = photoSearchService.data[indexPath.row].originalURL
         var image = cache.objectForKey(photoURL!) as? UIImage
         
         if image == nil {
@@ -73,12 +73,12 @@ class PhotoCollectionBaseViewController: UIViewController {
     
     func handleFlickrData(responseData: [FlickrPhotoModel], finishCompletion: (Void -> Void)?) {
         var indexPaths = [NSIndexPath]()
-        let firstIndex = photoSearchController.data.count
+        let firstIndex = photoSearchService.data.count
         
         for (i, photoModel) in responseData.enumerate() {
             let indexPath = NSIndexPath(forItem: firstIndex + i, inSection: 0)
             
-            photoSearchController.data.append(photoModel)
+            photoSearchService.data.append(photoModel)
             indexPaths.append(indexPath)
         }
         
@@ -102,14 +102,14 @@ class PhotoCollectionBaseViewController: UIViewController {
         var indexPaths = [NSIndexPath]()
         let firstIndex = 0
         
-        for (i, _) in photoSearchController.data.enumerate() {
+        for (i, _) in photoSearchService.data.enumerate() {
             let indexPath = NSIndexPath(forItem: firstIndex + i, inSection: 0)
             indexPaths.append(indexPath)
         }
         
         collectionView.performBatchUpdates({
             self.collectionView.deleteItemsAtIndexPaths(indexPaths)
-            self.photoSearchController.data = []
+            self.photoSearchService.data = []
             self.fetchData(nil)
         }, completion: nil)
     }
@@ -133,7 +133,7 @@ extension PhotoCollectionBaseViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(ImageCollectionViewCell.reusableIdentifier,
             forIndexPath: indexPath) as! ImageCollectionViewCell
         
-        let cellPhotoModel = photoSearchController.data[indexPath.row]
+        let cellPhotoModel = photoSearchService.data[indexPath.row]
         let originalURL = cellPhotoModel.originalURL!
         let thumbURL = cellPhotoModel.thumbnailURL!
         
@@ -162,7 +162,14 @@ extension PhotoCollectionBaseViewController: UICollectionViewDataSource {
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return photoSearchController.data.count
+        return photoSearchService.data.count
+    }
+}
+
+//MARK: - Extension - Collection View Delegate Methods
+extension PhotoCollectionBaseViewController: UICollectionViewDelegate {
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        collectionView.deselectItemAtIndexPath(indexPath, animated: true)
     }
 }
 

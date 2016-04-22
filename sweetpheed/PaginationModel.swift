@@ -22,10 +22,10 @@ struct PaginationModel {
 }
 
 extension PaginationModel {
-    func toDictionaryRepresentation() -> [String: CustomStringConvertible] {
+    func toDictionaryRepresentation() -> [String: String] {
         return [
-            "page": currentPage,
-            "per_page": perPage
+            "page": String(currentPage),
+            "per_page": String(perPage)
         ]
     }
 }

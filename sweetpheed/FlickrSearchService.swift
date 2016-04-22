@@ -10,19 +10,21 @@ import Foundation
 import CoreLocation
 import FlickrKit
 
-class SearchController {
+class FlickrSearchService {
+    //MARK: - Properties
     var data = [FlickrPhotoModel]()
     var storedQueryString: String?
     var storedLocation: CLLocation?
     private var pagination = PaginationModel()
     
+    //MARK: - Public Methods
     func searchNearbyPhotosWithLocation(location: CLLocation, dataHandler: ([FlickrPhotoModel]) -> ()) {
-        populateParametersIfChangesExist(location)
+        populateParametersIfChangesPresentWith(location: location)
         
-        var queryParams = [String: CustomStringConvertible]()
-        queryParams["radius"] = 1
-        queryParams["lat"] = location.coordinate.latitude
-        queryParams["lon"] = location.coordinate.longitude
+        var queryParams = [String: String]()
+        queryParams["radius"] = String(1)
+        queryParams["lat"] = location.coordinate.latitude.description
+        queryParams["lon"] = location.coordinate.longitude.description
         
         let method = prepareSearchMethod(queryParams)
         
@@ -38,6 +40,27 @@ class SearchController {
         }
     }
     
+    func searchPhotosWithQueryString(queryString: String, dataHandler: ([FlickrPhotoModel]) -> ()) {
+        populateParametersIfChangesPresentWith(queryString: queryString)
+        
+        var queryParams = [String: String]()
+        queryParams["text"] = queryString
+        
+        let method = prepareSearchMethod(queryParams)
+        
+        FlickrKit.sharedFlickrKit().call(method) {
+            response, error in
+            
+            guard response != nil else {
+                NSLog("Search Photos By Keyword Method received no data. The error code \(error.code)")
+                return
+            }
+            
+            self.parseDataFromResponse(response, dataHandler: dataHandler)
+        }
+    }
+    
+    //MARK: - Private Methods
     private func parseDataFromResponse(response: [NSObject: AnyObject], dataHandler: ([FlickrPhotoModel]) -> Void) {
         var flickrResponseData = [FlickrPhotoModel]()
         
@@ -54,34 +77,43 @@ class SearchController {
         dataHandler(flickrResponseData)
     }
     
-    private func prepareSearchMethod(queryParams: [String: CustomStringConvertible]) -> FKFlickrPhotosSearch {
+    private func prepareSearchMethod(queryParams: [String: String]) -> FKFlickrPhotosSearch {
         var params = queryParams
         params += pagination.toDictionaryRepresentation()
         pagination.currentPage += 1//increase a page for reuse
         
         let method = FKFlickrPhotosSearch()
         for (key, value) in params {
-            method.setValue(value.description, forKey: key)
+            method.setValue(value, forKey: key)
         }
         method.privacy_filter = String(1)//1 allows only public content
         
         return method
     }
     
-    private func populateParametersIfChangesExist(location: CLLocation) {
+    private func populateParametersIfChangesPresentWith(location location: CLLocation) {
         if let oldLocation = storedLocation {
-            if !isLocationsEqual(oldLocation, location) {
-                self.pagination = PaginationModel()
-                self.storedLocation = location
-            } else if isLocationsEqual(oldLocation, location) && data.count == 0 {//gets pull-to-refresh trigger
-                self.pagination = PaginationModel()
+            if !CLLocation.isLocationsEqual(oldLocation, location) {
+                pagination = PaginationModel()
+                storedLocation = location
+            } else if CLLocation.isLocationsEqual(oldLocation, location) && data.count == 0 {//gets pull-to-refresh trigger
+                pagination = PaginationModel()
             }
         } else {
-            self.storedLocation = location //initialize first if nil
+            storedLocation = location
         }
     }
     
-    private func isLocationsEqual(location1: CLLocation, _ location2: CLLocation) -> Bool {
-        return location1.distanceFromLocation(location2) == 0
+    private func populateParametersIfChangesPresentWith(queryString queryString: String) {
+        if let oldQueryString = storedQueryString {
+            if oldQueryString != queryString {
+                pagination = PaginationModel()
+                storedQueryString = queryString
+            } else if oldQueryString == queryString && data.count == 0 {
+                pagination = PaginationModel()
+            }
+        } else {
+            storedQueryString = queryString
+        }
     }
 }

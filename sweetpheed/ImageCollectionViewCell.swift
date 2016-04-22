@@ -9,11 +9,13 @@
 import UIKit
 
 class ImageCollectionViewCell: UICollectionViewCell {
+    //MARK: - Properties
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
     static let reusableIdentifier = "collectionViewReusableIdentifier"
     
+    //MARK: - Overrided Methods
     override func prepareForReuse() {
         super.prepareForReuse()
         

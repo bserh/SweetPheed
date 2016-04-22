@@ -30,13 +30,13 @@ class NearbyPhotosViewController: PhotoCollectionBaseViewController {
         automaticalyUpdatePermission = sender.on
     }
     
-    //MARK: - Custom Methods
+    //MARK: - Overrided Methods
     override func fetchData(finishCompletion: (Void -> Void)?) {
         guard let lastLocationPoint = lastLocationPoint else {
             return
         }
         
-        photoSearchController.searchNearbyPhotosWithLocation(lastLocationPoint, dataHandler: {
+        photoSearchService.searchNearbyPhotosWithLocation(lastLocationPoint, dataHandler: {
             [weak self] data in
             self?.handleFlickrData(data, finishCompletion: finishCompletion)
         })
@@ -61,16 +61,14 @@ extension NearbyPhotosViewController: CLLocationManagerDelegate {
             return
         }
         
-        if automaticalyUpdatePermission
-            && (newLocation.coordinate.latitude != lastLocationPoint.coordinate.latitude)
-            && (newLocation.coordinate.longitude != lastLocationPoint.coordinate.longitude) {
+        if automaticalyUpdatePermission && !CLLocation.isLocationsEqual(lastLocationPoint, newLocation) {
             self.lastLocationPoint = newLocation
             refreshData()
         }
     }
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
-        let errorType = error.code == CLError.Denied.rawValue ? "Access Denied" : "Error. Can't get your location"
+        let errorType = error.code == CLError.Denied.rawValue ? "Access Denied" : "Can't get your location"
         
         let alertController = UIAlertController(title: "Location Manager Error", message: errorType, preferredStyle: .Alert)
         let actionOK = UIAlertAction(title: "OK", style: .Cancel, handler: nil)

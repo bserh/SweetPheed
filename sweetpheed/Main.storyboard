@@ -6,10 +6,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Item 2-->
+        <!--Search Photos View Controller-->
         <scene sceneID="HFB-16-WWq">
             <objects>
-                <viewController id="Edf-Le-N2W" sceneMemberID="viewController">
+                <viewController id="Edf-Le-N2W" customClass="SearchPhotosViewController" customModule="sweetpheed" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="S5u-TH-6lh"/>
                         <viewControllerLayoutGuide type="bottom" id="R22-7A-nwY"/>
@@ -17,13 +17,73 @@
                     <view key="view" contentMode="scaleToFill" id="Okc-YJ-NVk">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="ha6-GO-w4L">
+                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nWc-CA-3i5">
+                                <rect key="frame" x="0.0" y="108" width="600" height="443"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="6mh-OU-kvV">
+                                    <size key="itemSize" width="151" height="133"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionViewReusableIdentifier" id="uGQ-dK-JWN" customClass="ImageCollectionViewCell" customModule="sweetpheed" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="151" height="133"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="151" height="133"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3WZ-fW-dLo">
+                                                    <rect key="frame" x="0.0" y="0.0" width="151" height="133"/>
+                                                </imageView>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="LmE-JS-f2G">
+                                                    <rect key="frame" x="65" y="57" width="20" height="20"/>
+                                                </activityIndicatorView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="3WZ-fW-dLo" secondAttribute="trailing" id="2b5-Bo-Ij3"/>
+                                            <constraint firstItem="3WZ-fW-dLo" firstAttribute="top" secondItem="uGQ-dK-JWN" secondAttribute="top" id="LWF-zt-xk8"/>
+                                            <constraint firstItem="3WZ-fW-dLo" firstAttribute="leading" secondItem="uGQ-dK-JWN" secondAttribute="leading" id="Q6M-Ua-qCo"/>
+                                            <constraint firstItem="LmE-JS-f2G" firstAttribute="centerX" secondItem="uGQ-dK-JWN" secondAttribute="centerX" id="TSb-tk-2wx"/>
+                                            <constraint firstAttribute="bottom" secondItem="3WZ-fW-dLo" secondAttribute="bottom" id="fWN-HB-4uI"/>
+                                            <constraint firstItem="LmE-JS-f2G" firstAttribute="centerY" secondItem="uGQ-dK-JWN" secondAttribute="centerY" id="q6w-QR-1Kb"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="imageView" destination="3WZ-fW-dLo" id="8NS-Ra-yXx"/>
+                                            <outlet property="loadingIndicator" destination="LmE-JS-f2G" id="sc5-aJ-2xr"/>
+                                            <segue destination="2t8-7T-nLL" kind="presentation" identifier="showFullSizePhoto" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="rda-tX-exa"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="R22-7A-nwY" firstAttribute="top" secondItem="nWc-CA-3i5" secondAttribute="bottom" id="0Wh-kP-aDX"/>
+                            <constraint firstItem="nWc-CA-3i5" firstAttribute="leading" secondItem="Okc-YJ-NVk" secondAttribute="leading" id="9CI-IU-Bkg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ha6-GO-w4L" secondAttribute="trailing" constant="-20" id="MOq-ib-tdP"/>
+                            <constraint firstAttribute="trailing" secondItem="nWc-CA-3i5" secondAttribute="trailing" id="UPK-wT-KZh"/>
+                            <constraint firstItem="ha6-GO-w4L" firstAttribute="leading" secondItem="Okc-YJ-NVk" secondAttribute="leadingMargin" constant="-20" id="ods-Lz-FJ6"/>
+                            <constraint firstItem="nWc-CA-3i5" firstAttribute="top" secondItem="ha6-GO-w4L" secondAttribute="bottom" id="sjc-W2-L2k"/>
+                            <constraint firstItem="ha6-GO-w4L" firstAttribute="top" secondItem="S5u-TH-6lh" secondAttribute="bottom" id="zy7-bQ-UFq"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="Ntu-3h-I4C"/>
+                    <navigationItem key="navigationItem" id="GX1-eQ-vGh"/>
+                    <connections>
+                        <outlet property="collectionView" destination="nWc-CA-3i5" id="UQh-hj-QwI"/>
+                        <outlet property="searchBar" destination="ha6-GO-w4L" id="PI5-sk-vcp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AQt-rt-eyZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="510" y="388"/>
+            <point key="canvasLocation" x="1322" y="388"/>
         </scene>
         <!--Nearby photos-->
         <scene sceneID="6jm-YI-JPG">
@@ -123,18 +183,20 @@
                     </tabBar>
                     <connections>
                         <segue destination="8gm-9A-5pe" kind="relationship" relationship="viewControllers" id="Aft-t4-hJi"/>
-                        <segue destination="Edf-Le-N2W" kind="relationship" relationship="viewControllers" id="7Va-Jl-jIG"/>
+                        <segue destination="1Dt-9T-bBq" kind="relationship" relationship="viewControllers" id="7Va-Jl-jIG"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L7z-lX-xW6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-310" y="58"/>
         </scene>
-        <!--Item 1-->
+        <!--Nearby-->
         <scene sceneID="OXA-eF-g5A">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8gm-9A-5pe" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 1" id="CPS-ED-Snh"/>
+                    <tabBarItem key="tabBarItem" title="Nearby" image="Entering Geo Fence Filled" id="CPS-ED-Snh">
+                        <inset key="imageInsets" minX="0.0" minY="3" maxX="0.0" maxY="-1"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="5Fe-fe-HXr">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -231,7 +293,35 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2176" y="-58"/>
+            <point key="canvasLocation" x="2088" y="58"/>
+        </scene>
+        <!--Search-->
+        <scene sceneID="KM5-zM-Z1X">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1Dt-9T-bBq" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Search" image="Search Filled" id="Ntu-3h-I4C">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lIJ-Jb-wmA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Edf-Le-N2W" kind="relationship" relationship="rootViewController" id="8cV-ae-8Is"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sih-xV-cgy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="510" y="388"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Entering Geo Fence Filled" width="40" height="40"/>
+        <image name="Search Filled" width="40" height="40"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="rda-tX-exa"/>
+    </inferredMetricsTieBreakers>
 </document>
