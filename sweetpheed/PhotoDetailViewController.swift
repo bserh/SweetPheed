@@ -17,6 +17,8 @@ class PhotoDetailViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var imageConstraintTop: NSLayoutConstraint!
     @IBOutlet weak var imageConstraintBottom: NSLayoutConstraint!
     @IBOutlet weak var imageConstraintRight: NSLayoutConstraint!
+    @IBOutlet weak var singleTap: UIGestureRecognizer!
+    @IBOutlet weak var doubleTap: UIGestureRecognizer!
     
     private let defaultPlaceholderImageKeyName = "imageNotFound"
     private let unwindSegueIdentifier = "unwindToPhotoCollection"
@@ -25,17 +27,7 @@ class PhotoDetailViewController: UIViewController, UIScrollViewDelegate {
     private var lastZoomScale: CGFloat = -1
     
     override func viewDidLoad() {
-        let doubleTap = UITapGestureRecognizer(target: self, action: "zoom:")
-        doubleTap.numberOfTapsRequired = 2
-        doubleTap.numberOfTouchesRequired = 1
-        scrollView.addGestureRecognizer(doubleTap)
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        activityIndicator.hidesWhenStopped = true
-        activityIndicator.startAnimating()
+        singleTap.requireGestureRecognizerToFail(doubleTap)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -46,7 +38,6 @@ class PhotoDetailViewController: UIViewController, UIScrollViewDelegate {
         } else {
             imageView.image = UIImage(named: defaultPlaceholderImageKeyName)
         }
-        activityIndicator.stopAnimating()
         
         scrollView.delegate = self
         updateZoom()
@@ -62,8 +53,11 @@ class PhotoDetailViewController: UIViewController, UIScrollViewDelegate {
     }
     
     @IBAction func handleDoubleTap(sender: UITapGestureRecognizer) {
-//        let kindOfTap = sender.tap
-        self.performSegueWithIdentifier(unwindSegueIdentifier, sender: self)
+        handleZoomCallEvent(sender)
+    }
+    
+    @IBAction func handleSingleTap(sender: UITapGestureRecognizer) {
+        performSegueWithIdentifier(unwindSegueIdentifier, sender: self)
     }
     
     private func updateConstraints() {
@@ -109,15 +103,15 @@ class PhotoDetailViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
-    private func zoom(tapGesture: UITapGestureRecognizer) {
-        if (scrollView.zoomScale == self.scrollView.minimumZoomScale) {
+    private func handleZoomCallEvent(tapGesture: UITapGestureRecognizer) {
+        if (scrollView.zoomScale == scrollView.minimumZoomScale) {
             let center = tapGesture.locationInView(scrollView)
             let size = self.imageView.image?.size
-            let zoomRect = CGRectMake(center.x, center.y, (size!.width / 2), (size!.height / 2))
+            let zoomRect = CGRectMake(center.x, center.y, size!.width / 2, size!.height / 2)
             
             scrollView.zoomToRect(zoomRect, animated: true)
         } else {
-            self.scrollView!.setZoomScale(self.scrollView!.minimumZoomScale, animated: true)
+            self.scrollView.setZoomScale(scrollView.minimumZoomScale, animated: true)
         }
     }
 }

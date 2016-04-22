@@ -73,7 +73,7 @@
                                         <connections>
                                             <outlet property="imageView" destination="DNO-x3-OEj" id="Bth-Ck-43C"/>
                                             <outlet property="loadingIndicator" destination="JPu-Io-Vj6" id="Gpx-9U-qt9"/>
-                                            <segue destination="2t8-7T-nLL" kind="presentation" identifier="showFullSizePhoto" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="shb-cg-g4g"/>
+                                            <segue destination="2t8-7T-nLL" kind="presentation" identifier="showFullSizePhoto" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="shb-cg-g4g"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -170,20 +170,22 @@
                                     <imageView multipleTouchEnabled="YES" contentMode="scaleAspectFit" placeholderIntrinsicWidth="100" placeholderIntrinsicHeight="100" translatesAutoresizingMaskIntoConstraints="NO" id="ZHV-qD-Tq1">
                                         <rect key="frame" x="250" y="270" width="100" height="100"/>
                                         <gestureRecognizers/>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="KTa-cd-NsX" appends="YES" id="Ifd-rJ-mu3"/>
-                                        </connections>
                                     </imageView>
                                 </subviews>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="ZHV-qD-Tq1" firstAttribute="leading" secondItem="JNO-QU-2Oh" secondAttribute="leading" constant="250" id="FpJ-Ud-SAX"/>
                                     <constraint firstItem="ZHV-qD-Tq1" firstAttribute="top" secondItem="JNO-QU-2Oh" secondAttribute="top" constant="270" id="IT2-rv-FPA"/>
                                     <constraint firstItem="ZHV-qD-Tq1" firstAttribute="bottom" secondItem="JNO-QU-2Oh" secondAttribute="bottom" constant="-230" id="St7-H4-YFx"/>
                                     <constraint firstItem="ZHV-qD-Tq1" firstAttribute="trailing" secondItem="JNO-QU-2Oh" secondAttribute="trailing" constant="-250" id="lme-HQ-6H4"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="HTt-Bd-HCA" appends="YES" id="jsF-qW-1VD"/>
+                                </connections>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="JNO-QU-2Oh" secondAttribute="bottom" id="Fl8-Vf-cV1"/>
                             <constraint firstAttribute="trailing" secondItem="JNO-QU-2Oh" secondAttribute="trailing" id="aYf-UI-E7Z"/>
@@ -192,6 +194,9 @@
                             <constraint firstItem="JNO-QU-2Oh" firstAttribute="top" secondItem="3xr-tT-vc9" secondAttribute="top" id="ruw-X8-5xh"/>
                             <constraint firstItem="JNO-QU-2Oh" firstAttribute="leading" secondItem="3xr-tT-vc9" secondAttribute="leading" id="sqt-Li-Iau"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="yEH-Yn-9zQ" appends="YES" id="7En-TS-0R1"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Full size photo" id="mHG-jn-dPb">
                         <barButtonItem key="rightBarButtonItem" title="Share" id="Xr7-cz-XD9">
@@ -202,20 +207,27 @@
                     </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="6Fi-xh-hKr" id="Cs7-Jy-ayq"/>
+                        <outlet property="doubleTap" destination="yEH-Yn-9zQ" id="A3L-Qy-ouY"/>
                         <outlet property="imageConstraintBottom" destination="St7-H4-YFx" id="7lo-Dg-fDk"/>
                         <outlet property="imageConstraintLeft" destination="FpJ-Ud-SAX" id="Nke-uz-gd5"/>
                         <outlet property="imageConstraintRight" destination="lme-HQ-6H4" id="rAe-ad-3Ah"/>
                         <outlet property="imageConstraintTop" destination="IT2-rv-FPA" id="QkJ-PT-0hl"/>
                         <outlet property="imageView" destination="ZHV-qD-Tq1" id="Al5-Xt-5sV"/>
                         <outlet property="scrollView" destination="JNO-QU-2Oh" id="fim-PH-Bdm"/>
+                        <outlet property="singleTap" destination="HTt-Bd-HCA" id="6ls-Jb-tgp"/>
                         <segue destination="pCT-mp-fj0" kind="unwind" identifier="unwindToPhotoCollection" unwindAction="unwindToPhotoCollectionBaseViewController:" id="XBK-06-oJt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K1Q-Cp-e4g" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="pCT-mp-fj0" userLabel="Exit" sceneMemberID="exit"/>
-                <tapGestureRecognizer id="KTa-cd-NsX">
+                <tapGestureRecognizer numberOfTapsRequired="2" id="yEH-Yn-9zQ">
                     <connections>
-                        <action selector="handleDoubleTap:" destination="2t8-7T-nLL" id="JyP-Ii-Gks"/>
+                        <action selector="handleDoubleTap:" destination="2t8-7T-nLL" id="yqC-ps-agA"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="HTt-Bd-HCA">
+                    <connections>
+                        <action selector="handleSingleTap:" destination="2t8-7T-nLL" id="cTl-8J-GDh"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
