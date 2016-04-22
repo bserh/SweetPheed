@@ -15,7 +15,7 @@ class PhotoCollectionBaseViewController: UIViewController {
     let photoSearchService = FlickrSearchService()
     private let showFullSizeSegueIdentifier = "showFullSizePhoto"
     private var refreshControl: UIRefreshControl?
-    private var cache = NSCache()
+    private var cacheController = CacheImageController.sharedInstance
     
     //MARK: - Life Cycle Managing Methods
     override func viewDidLoad() {
@@ -47,18 +47,10 @@ class PhotoCollectionBaseViewController: UIViewController {
         let indexPath = collectionView.indexPathForCell(collectionViewCell)!
         
         let photoURL = photoSearchService.data[indexPath.row].originalURL
-        var image = cache.objectForKey(photoURL!) as? UIImage
-        
-        if image == nil {
-            if let imageData = NSData(contentsOfURL: photoURL!){
-                image = UIImage(data: imageData)
-                cache.setObject(image!, forKey: photoURL!)
-            }
-        }
             
         if let photoDetailVC = segue.destinationViewController as? PhotoDetailViewController
             where segue.identifier == self.showFullSizeSegueIdentifier {
-                photoDetailVC.photoImage = image
+                photoDetailVC.photoURL = photoURL
         }
     }
     
@@ -117,7 +109,7 @@ class PhotoCollectionBaseViewController: UIViewController {
     private func loadImageForCellInBackgroundFor(thumbURL thumbURL: NSURL, completion: (thumb: UIImage) -> Void) {
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_DEFAULT, 0)) {
             if let thumbImageData = NSData(contentsOfURL: thumbURL), tImage = UIImage(data: thumbImageData){
-                self.cache.setObject(tImage, forKey: thumbURL)
+                self.cacheController.cachingImage(tImage, forKeyAsURL: thumbURL)
                 
                 dispatch_async(dispatch_get_main_queue(), {
                     completion(thumb: tImage)
@@ -134,12 +126,11 @@ extension PhotoCollectionBaseViewController: UICollectionViewDataSource {
             forIndexPath: indexPath) as! ImageCollectionViewCell
         
         let cellPhotoModel = photoSearchService.data[indexPath.row]
-        let originalURL = cellPhotoModel.originalURL!
         let thumbURL = cellPhotoModel.thumbnailURL!
         
         cell.loadingIndicator.frame = CGRectMake(0, 0, cell.frame.width, cell.frame.height)
         cell.loadingIndicator.hidesWhenStopped = true
-        let image = cache.objectForKey(originalURL) as? UIImage
+        let image = cacheController.getImageByURL(thumbURL)
         
         if image == nil {
             cell.loadingIndicator.startAnimating()

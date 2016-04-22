@@ -233,12 +233,20 @@
                                         <rect key="frame" x="250" y="270" width="100" height="100"/>
                                         <gestureRecognizers/>
                                     </imageView>
+                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="p5j-HZ-bA2">
+                                        <rect key="frame" x="225" y="570" width="150" height="2"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="9zf-RJ-hOb"/>
+                                        </constraints>
+                                    </progressView>
                                 </subviews>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="ZHV-qD-Tq1" firstAttribute="leading" secondItem="JNO-QU-2Oh" secondAttribute="leading" constant="250" id="FpJ-Ud-SAX"/>
                                     <constraint firstItem="ZHV-qD-Tq1" firstAttribute="top" secondItem="JNO-QU-2Oh" secondAttribute="top" constant="270" id="IT2-rv-FPA"/>
                                     <constraint firstItem="ZHV-qD-Tq1" firstAttribute="bottom" secondItem="JNO-QU-2Oh" secondAttribute="bottom" constant="-230" id="St7-H4-YFx"/>
+                                    <constraint firstItem="p5j-HZ-bA2" firstAttribute="centerX" secondItem="JNO-QU-2Oh" secondAttribute="centerX" id="ZYF-EB-yde"/>
+                                    <constraint firstAttribute="bottom" secondItem="p5j-HZ-bA2" secondAttribute="bottom" constant="28" id="hMf-iS-DlV"/>
                                     <constraint firstItem="ZHV-qD-Tq1" firstAttribute="trailing" secondItem="JNO-QU-2Oh" secondAttribute="trailing" constant="-250" id="lme-HQ-6H4"/>
                                 </constraints>
                                 <connections>
@@ -275,6 +283,7 @@
                         <outlet property="imageConstraintRight" destination="lme-HQ-6H4" id="rAe-ad-3Ah"/>
                         <outlet property="imageConstraintTop" destination="IT2-rv-FPA" id="QkJ-PT-0hl"/>
                         <outlet property="imageView" destination="ZHV-qD-Tq1" id="Al5-Xt-5sV"/>
+                        <outlet property="progressView" destination="p5j-HZ-bA2" id="Qyk-rC-8CK"/>
                         <outlet property="scrollView" destination="JNO-QU-2Oh" id="fim-PH-Bdm"/>
                         <outlet property="singleTap" destination="HTt-Bd-HCA" id="6ls-Jb-tgp"/>
                         <segue destination="pCT-mp-fj0" kind="unwind" identifier="unwindToPhotoCollection" unwindAction="unwindToPhotoCollectionBaseViewController:" id="XBK-06-oJt"/>

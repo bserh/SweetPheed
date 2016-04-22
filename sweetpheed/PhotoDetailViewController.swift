@@ -9,6 +9,7 @@
 import UIKit
 
 class PhotoDetailViewController: UIViewController, UIScrollViewDelegate {
+    //MARK: - Properties
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var imageView: UIImageView!
@@ -20,30 +21,35 @@ class PhotoDetailViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var singleTap: UIGestureRecognizer!
     @IBOutlet weak var doubleTap: UIGestureRecognizer!
     
-    private let defaultPlaceholderImageKeyName = "imageNotFound"
-    private let unwindSegueIdentifier = "unwindToPhotoCollection"
+    @IBOutlet weak var progressView: UIProgressView!
     
-    var photoImage: UIImage?
+    private let defaultPlaceholderImageKeyName = "placeholder"
+    private let unwindSegueIdentifier = "unwindToPhotoCollection"
+    private let cacheController = CacheImageController.sharedInstance
+    
+    var photoURL: NSURL?
     private var lastZoomScale: CGFloat = -1
     
+    //MARK: - Life Cycle Managing Methods
     override func viewDidLoad() {
-        singleTap.requireGestureRecognizerToFail(doubleTap)
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
+        super.viewDidLoad()
         
-        if let image = photoImage {
+        scrollView.delegate = self
+        if let image = cacheController.getImageByURL(photoURL!) {
             imageView.image = image
         } else {
             imageView.image = UIImage(named: defaultPlaceholderImageKeyName)
         }
         
-        scrollView.delegate = self
         updateZoom()
         updateConstraints()
+        
+        singleTap.requireGestureRecognizerToFail(doubleTap)
+        
+        download()
     }
     
+    //MARK: - Scroll View Delegate Methods
     func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
         return imageView
     }
@@ -52,6 +58,7 @@ class PhotoDetailViewController: UIViewController, UIScrollViewDelegate {
         updateConstraints()
     }
     
+    //MARK: - Actions
     @IBAction func handleDoubleTap(sender: UITapGestureRecognizer) {
         handleZoomCallEvent(sender)
     }
@@ -60,6 +67,7 @@ class PhotoDetailViewController: UIViewController, UIScrollViewDelegate {
         performSegueWithIdentifier(unwindSegueIdentifier, sender: self)
     }
     
+    //MARK: - Custom Methods
     private func updateConstraints() {
         if let image = imageView.image {
             let imageWidth = image.size.width
@@ -112,6 +120,40 @@ class PhotoDetailViewController: UIViewController, UIScrollViewDelegate {
             scrollView.zoomToRect(zoomRect, animated: true)
         } else {
             self.scrollView.setZoomScale(scrollView.minimumZoomScale, animated: true)
+        }
+    }
+}
+
+//MARK: - Extension - Session Delegate and Session Download Delegate Methods
+extension PhotoDetailViewController: NSURLSessionDelegate, NSURLSessionDownloadDelegate {
+    func download() {
+        let sessionConfig = NSURLSessionConfiguration.defaultSessionConfiguration()
+        let session = NSURLSession(configuration: sessionConfig, delegate: self, delegateQueue: nil)
+        let downloadTask = session.downloadTaskWithURL(photoURL!)
+        
+        downloadTask.resume()
+    }
+    
+    func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didFinishDownloadingToURL location: NSURL) {
+        let data = NSData(contentsOfURL: location)
+        
+        dispatch_async(dispatch_get_main_queue()) {
+            self.progressView.hidden = true
+            
+            let image = UIImage(data: data!)
+            self.cacheController.cachingImage(image!, forKeyAsURL: self.photoURL!)
+            self.imageView.image = image
+            
+            self.updateZoom()
+            self.updateConstraints()
+        }
+    }
+    
+    func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
+        let progress = Float(totalBytesWritten) / Float(totalBytesExpectedToWrite)
+        
+        dispatch_async(dispatch_get_main_queue()) {
+            self.progressView.progress = progress
         }
     }
 }
